@@ -50,7 +50,7 @@ class add_processing_time(beam.DoFn):
 
 class agg_temperature(beam.DoFn):
     def process(self, element):
-        temp = element['temperature']
+        temp = element['presion_arterial']
         yield temp
 
 #Create Beam pipeline
@@ -95,9 +95,9 @@ def edemData(output_table):
             | "WindowByMinute" >> beam.WindowInto(window.FixedWindows(60))
             | "MeanByWindow" >> beam.CombineGlobally(MeanCombineFn()).without_defaults()
             | "Add Window ProcessingTime" >> beam.ParDo(add_processing_time())
-            | "WriteToPubSub" >> beam.io.WriteToPubSub(topic="projects/lithe-window-342416/topics/iotToCloudFunctions", with_attributes=False)
+            # "WriteToPubSub" >> beam.io.WriteToPubSub(topic="projects/lithe-window-342416/topics/iotToCloudFunctions", with_attributes=False)
         )
-
+       
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
     edemData("iotToBigQuery")
