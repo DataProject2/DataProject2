@@ -42,8 +42,8 @@
     },
     {
         "mode": "NULLABLE",
-        "name": "frec_cardiaca",
-        "type": "oxigeno_sangre"
+        "name": "oxigeno_sangre",
+        "type": "FLOAT"
     }
     ]
 }
