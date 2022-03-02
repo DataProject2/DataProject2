@@ -1,0 +1,49 @@
+{
+    "fields": [
+    {
+      "mode": "NULLABLE",
+      "name": "device_id",
+      "type": "STRING"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "timeStamp",
+      "type": "STRING"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "processingTime",
+      "type": "STRING"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "user_id",
+      "type": "NUMERIC"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "presion_arterial",
+      "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "frec_cardiaca",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "frec_respiratoria",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "tension",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "frec_cardiaca",
+        "type": "oxigeno_sangre"
+    }
+    ]
+}

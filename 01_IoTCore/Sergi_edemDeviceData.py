@@ -539,7 +539,7 @@ def mqtt_device_demo(args):
             "timeStamp": str(datetime.datetime.now()),
             "presion_arterial": round(random.uniform(80,120),2),
             "frec_cardiaca": round(random.uniform(60,100),2),
-            "frec_respiatoria": round(random.uniform(15,20),2),
+            "frec_respiratoria": round(random.uniform(15,20),2),
             "tension": round(random.uniform(90,140),2),
             "oxigeno_sangre": round(random.uniform(95,100),2),
         }
