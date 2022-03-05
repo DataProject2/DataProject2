@@ -1,4 +1,4 @@
-![iCareLogo](https://github.com/DataProject2/DataProject2/tree/master/00_Logo/iCareLogo.png)
+![iCareLogo](https://github.com/DataProject2/DataProject2/blob/master/00_Logo/iCareLogoMini.png)
 
 ------------
 
