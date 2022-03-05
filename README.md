@@ -24,7 +24,7 @@ La salud, al momento, mejor.
 
 
 
-##¿Cómo funcionamos?
+## ¿Cómo funcionamos?
 
 -   #### Monotarización:
     
@@ -45,9 +45,10 @@ Otorgamos a nuestros clientes la tranquilidad y el bienestar pudiendo acceder al
 
 
 
-##Conoce a nuestro equipo
+## Conoce a nuestro equipo
 
 Compuesto por:
+
 **Jose Manuel García**  [![Linkedin Badge](https://img.shields.io/badge/-JoseManuel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/chiquillo/)](https://www.linkedin.com/in/jogacu/)
 
 
