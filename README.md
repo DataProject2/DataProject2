@@ -26,7 +26,7 @@ La salud, al momento, mejor.
 
 ## ¿Cómo funcionamos?
 
--   #### Monotarización:
+-   #### Monitarización:
     
 
 Monotorizamos las constantes vitales de los tuyos para un mayor control del estado de salud de los que más te preocupan y atención necesitan.
