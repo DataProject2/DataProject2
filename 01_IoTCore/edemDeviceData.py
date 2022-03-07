@@ -47,6 +47,16 @@ MAXIMUM_BACKOFF_TIME = 32
 # Whether to wait with exponential backoff before publishing.
 should_backoff = False
 
+# guardar si se han creado los dispositivos
+creados_users = 0
+
+#definir ids
+id_usuarios= [48574639, 19483724]
+id_dispositivos = [394823, 194734]
+
+#para guardar los datos de los dispositivos
+datos_user ={}
+
 
 # [START iot_mqtt_jwt]
 def create_jwt(project_id, private_key_file, algorithm):
@@ -294,6 +304,7 @@ def listen_for_messages(
                 mqtt_bridge_hostname,
                 mqtt_bridge_port,
             )
+
         time.sleep(1)
 
     detach_device(client, device_id)
@@ -532,17 +543,86 @@ def mqtt_device_demo(args):
             minimum_backoff_time *= 2
             client.connect(args.mqtt_bridge_hostname, args.mqtt_bridge_port)
 
+        #crear la estructura de datos para cada dispositivo si no se han creado
+        if creados_users == 0:
+            for i in range(0,2):
+                datos_user[i] = {
+                # "device_id": args.device_id
+                "device_id": args.device_id,
+                "id_usuario": id_usuarios[i],
+                "id_dispositivo": id_dispositivos[i],
+                "bateria_dispositivo": random.randint(2,100),
+                "timeStamp": str(datetime.datetime.now()),
+                "presion_arterial": round(random.uniform(80,120),2),
+                "frec_cardiaca": round(random.uniform(60,100),2),
+                "frec_respiratoria": round(random.uniform(15,20),2),
+                "tension": round(random.uniform(90,140),2),
+                "oxigeno_sangre": round(random.uniform(95,100),2),
+            }
+            creados_users = 1
+            user_act = 0
+        else:
+            #cambiar el que se envía
+            if user_act == 0:
+                user_act = 1
+            else:
+                user_act = 0
+        
+        #actualiza los datos del que se envía
+        # actualizar timeStamp
+        datos_user[user_act]['timeStamp'] = str(datetime.datetime.now())
+    
+        # crear o vaciar alertas para llenarlo de nuevo
+        alertas = []
+    
+        # actualizar presion_arterial
+        datos_user[user_act]['presion_arterial'] = round(datos_user[user_act]['presion_arterial'] + random.uniform(-5,5),2)
+        # ver si el valor es peligroso
+        if int(datos_user[user_act]['presion_arterial']) not in range(85, 115):
+            alertas.append('presion_arterial')
+        
+        # actualizar frec_cardiaca
+        datos_user[user_act]['frec_cardiaca'] = round(datos_user[user_act]['frec_cardiaca'] + random.uniform(-5,5),2)
+        # ver si el valor es peligroso
+        if int(datos_user[user_act]['frec_cardiaca']) not in range(65, 95):
+            alertas.append('frec_cardiaca')
+        
+        # actualizar frec_respiratoria
+        datos_user[user_act]['frec_respiratoria'] = round(datos_user[user_act]['frec_respiratoria'] + random.uniform(-0.5,0.5),2)
+        # ver si el valor es peligroso
+        if int(datos_user[user_act]['frec_respiratoria']) not in range(15, 19):
+            alertas.append('frec_respiratoria')
+        
+        # actualizar tension
+        datos_user[user_act]['tension'] = round(datos_user[user_act]['tension'] + random.uniform(-0.5,0.5),2)
+        # ver si el valor es peligroso
+        if int(datos_user[user_act]['tension']) not in range(95, 135):
+            alertas.append('tension')
+        
+        # actualizar oxigeno_sangre
+        datos_user[user_act]['oxigeno_sangre'] = round(datos_user[user_act]['oxigeno_sangre'] + random.uniform(-0.5,0.5),2)
+        # el oxigeno en sangre es un % asi que no puede ser mayor a 100
+        if datos_user[user_act]['oxigeno_sangre'] > 100:
+            datos_user[user_act]['oxigeno_sangre'] = 100
+        # ver si el valor es peligroso
+        if int(datos_user[user_act]['oxigeno_sangre']) not in range(95, 100):
+            alertas.append('oxigeno_sangre')
+
+        # ver si se va a acabar la batería del dispositivo
+        if int(datos_user[user_act]['bateria_dispositivo']) <+ 15:
+            alertas.append('bateria_dispositivo')    
+
+
+        # apuntar los campos que están en alerta
+        datos_user[user_act]['alertas'] = alertas
+        
+        # guarda los datos en el diccionario que se envia
+        payload_device = datos_user[user_act]
+
+
+
         #payload = "{}/{}-payload-{}".format(args.registry_id, args.device_id, i)
-        payload_device = {
-            "device_id": args.device_id,
-            "user_id": 48574639,
-            "timeStamp": str(datetime.datetime.now()),
-            "presion_arterial": round(random.uniform(80,120),2),
-            "frec_cardiaca": round(random.uniform(60,100),2),
-            "frec_respiratoria": round(random.uniform(15,20),2),
-            "tension": round(random.uniform(90,140),2),
-            "oxigeno_sangre": round(random.uniform(95,100),2),
-        }
+        payload_device = datos_user[user_act]
         print("Publishing message {}/{}: '{}'".format(i, args.num_messages, payload_device))
         # [START iot_mqtt_jwt_refresh]
         seconds_since_issue = (datetime.datetime.now(tz=datetime.timezone.utc) - jwt_iat).seconds
