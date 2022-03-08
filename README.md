@@ -39,7 +39,8 @@ gcloud services enable cloudbuild.googleapis.com
 - Crear entorno virtual de Python;
 
 ```python
-pip install -U -r setup_dependencies.txt
+virtualenv -p python3 <ENVIRONTMENT_NAME>
+source <ENVIRONMENT_NAME>/bin/activate
 ```
 
 - Instalar las dependencias necesarias.
