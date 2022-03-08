@@ -2,9 +2,9 @@
 
 ## 												Dispositivo IoT - iCare Solutions
 
-<img src="00_Images\Icare.png" alt="Image" "width="700" />
+![Icare](https://user-images.githubusercontent.com/84716641/157240802-f6557f7f-ab94-48a9-8fd9-d27914de1b2b.png)
 
-​																												_La salud, al momento, mejor_
+_La salud, al momento, mejor_
 
 
 
@@ -123,10 +123,8 @@ gcloud dataflow flex-template run "<YOUR_DATAFLOW_JOB_NAME>" \
     --region "europe-west1"
 
 
+![dataflowjob](https://user-images.githubusercontent.com/84716641/157240887-d24928a9-c58a-473d-b897-1c26c47361df.png)
 
-<img src="00_Images\dataflow.png" alt="Image" style="zoom:15%;" />
-
-<img src="00_Images\dataflow.png" alt="Image" style="zoom:15%;" />
 
 ### Cloud Functions
 
