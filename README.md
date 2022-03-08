@@ -2,7 +2,7 @@
 
 ## 												Dispositivo IoT - iCare Solutions
 
-<img src="C:\Diego\Icare.png" alt="Image" style="zoom:45%;" />
+<img src="00_Images\Icare.png" alt="Image" style="zoom:45%;" />
 
 ​																												_La salud, al momento, mejor_
 
