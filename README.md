@@ -2,7 +2,7 @@
 
 ## 												Dispositivo IoT - iCare Solutions
 
-<img src="00_Images\Icare.png" alt="Image" style="zoom:15%;" />
+<img src="00_Images\Icare.png" alt="Image" "width="700" />
 
 ​																												_La salud, al momento, mejor_
 
@@ -121,7 +121,10 @@ gcloud dataflow flex-template build "gs://<YOUR_BUCKET_NAME>/<YOUR_TEMPLATE_NAME
 gcloud dataflow flex-template run "<YOUR_DATAFLOW_JOB_NAME>" \
     --template-file-gcs-location "gs://<YOUR_BUCKET_NAME>/<YOUR_TEMPLATE_NAME>.json" \
     --region "europe-west1"
-````
+
+
+
+<img src="00_Images\dataflow.png" alt="Image" style="zoom:15%;" />
 
 <img src="00_Images\dataflow.png" alt="Image" style="zoom:15%;" />
 
