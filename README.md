@@ -2,7 +2,7 @@
 
 ## 												Dispositivo IoT - iCare Solutions
 
-<img src="00_Images\Icare.png" alt="Image" style="zoom:25%;" />
+<img src="00_Images\Icare.png" alt="Image" style="zoom:15%;" />
 
 ​																												_La salud, al momento, mejor_
 
@@ -123,11 +123,7 @@ gcloud dataflow flex-template run "<YOUR_DATAFLOW_JOB_NAME>" \
     --region "europe-west1"
 ````
 
-
-
-![Image](00_Images\dataflowjob.png)
-
-
+<img src="00_Images\dataflow.png" alt="Image" style="zoom:15%;" />
 
 ### Cloud Functions
 
@@ -199,9 +195,8 @@ python edemDeviceData.py \
 
 - Ir a Big Query;
 
-![Image](00_Images\Big Query.png)
 
-
+<img src="00_Images\Big Query.png" alt="Image" style="zoom:15%;" />
 
 
 
@@ -212,8 +207,8 @@ python edemDeviceData.py \
 - Vincular ICare Dashboard
 
 
+<img src="00_Images\dashboard.png" alt="Image" style="zoom:15%;" />
 
-![Image](00_Images\dashboard.png)
 
 ### Mobile App
 
