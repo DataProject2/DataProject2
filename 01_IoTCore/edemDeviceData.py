@@ -505,6 +505,7 @@ def mqtt_device_demo(args):
     # [START iot_mqtt_run]
     global minimum_backoff_time
     global MAXIMUM_BACKOFF_TIME
+    global creados_users
 
     # Publish to the events or state topic based on the flag.
     sub_topic = "events" if args.message_type == "event" else "state"
@@ -556,7 +557,7 @@ def mqtt_device_demo(args):
                 "presion_arterial": round(random.uniform(80,120),2),
                 "frec_cardiaca": round(random.uniform(60,100),2),
                 "frec_respiratoria": round(random.uniform(15,20),2),
-                "tension": round(random.uniform(90,140),2),
+                "temperatura": round(random.uniform(35,40),2),
                 "oxigeno_sangre": round(random.uniform(95,100),2),
             }
             creados_users = 1
@@ -593,11 +594,11 @@ def mqtt_device_demo(args):
         if int(datos_user[user_act]['frec_respiratoria']) not in range(15, 19):
             alertas.append('frec_respiratoria')
         
-        # actualizar tension
-        datos_user[user_act]['tension'] = round(datos_user[user_act]['tension'] + random.uniform(-0.5,0.5),2)
+        # actualizar temperatura
+        datos_user[user_act]['temperatura'] = round(datos_user[user_act]['temperatura'] + random.uniform(-0.5,0.5),2)
         # ver si el valor es peligroso
-        if int(datos_user[user_act]['tension']) not in range(95, 135):
-            alertas.append('tension')
+        if int(datos_user[user_act]['temperatura']) not in range(35, 37):
+            alertas.append('temperatura')
         
         # actualizar oxigeno_sangre
         datos_user[user_act]['oxigeno_sangre'] = round(datos_user[user_act]['oxigeno_sangre'] + random.uniform(-0.5,0.5),2)
@@ -609,7 +610,7 @@ def mqtt_device_demo(args):
             alertas.append('oxigeno_sangre')
 
         # ver si se va a acabar la batería del dispositivo
-        if int(datos_user[user_act]['bateria_dispositivo']) <+ 15:
+        if int(datos_user[user_act]['bateria_dispositivo']) <= 15:
             alertas.append('bateria_dispositivo')    
 
 
