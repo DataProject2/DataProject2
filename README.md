@@ -139,24 +139,24 @@ from datetime import datetime
 
 client = firestore.Client(project='lithe-window-342416')
 
-def dataICareToFireStore(event, context):
+def dataICareFireStore(event, context):
     message = ''
     if 'data' in event:
         message = base64.b64decode(event['data']).decode('utf-8')
         ICaredata = json.loads(message)
-        print(type(ICaredata))
-        print(ICaredata["device_id"])
 
-    doc = client.collection('device').document(ICaredata["device_id"])
+    doc = client.collection('device').document( str(ICaredata["id_usuario"]))
     doc.set({
-    'device_id': ICaredata["device_id"],
-    'user_id': ICaredata["user_id"],
+    'id_usuario': ICaredata["id_usuario"],
+    'id_dispositivo': ICaredata["id_dispositivo"],
+    'bateria_dispositivo': ICaredata["bateria_dispositivo"],
     'timeStamp': ICaredata["timeStamp"],
     'presion_arterial': ICaredata["presion_arterial"],
     'frec_cardiaca': ICaredata["frec_cardiaca"],
     'frec_respiratoria': ICaredata["frec_respiratoria"],
-    'tension': ICaredata["tension"],
+    'temperatura': ICaredata["temperatura"],
     'oxigeno_sangre': ICaredata["oxigeno_sangre"],
+    'alertas': ICaredata["alertas"],
     })
     print(f'message: {message}')
 ````
