@@ -15,10 +15,6 @@ _La salud, al momento, mejor_
 
 
 
-## Part 01:
-
-
-
 ### Requisitos previos:
 
 ---
