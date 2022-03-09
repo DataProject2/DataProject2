@@ -1,4 +1,4 @@
-import '../backend/backend.dart';
+mport '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -78,7 +78,22 @@ class _ListWidgetState extends State<ListWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(30, 250, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                  child: Icon(
+                    Icons.warning_amber_rounded,
+                    color: Color(0xFFF80608),
+                    size: 100,
+                  ),
+                ),
+                Text(
+                  '¡ALERTA!',
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Poppins',
+                        color: Color(0xFFF80608),
+                      ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 150, 0, 0),
                   child: Text(
                     'Parametros de tensión por encima de los normales',
                     textAlign: TextAlign.center,
