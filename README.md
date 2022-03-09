@@ -10,7 +10,8 @@ _La salud, al momento, mejor_
 
 ### Arquitectura de datos:
 
-(foto arquitectura)
+
+![arquitectura](https://user-images.githubusercontent.com/84716641/157487670-12511677-c483-435b-bcf9-a22632f7fcde.png)
 
 
 
@@ -215,8 +216,9 @@ python edemDeviceData.py \
 ### Mobile App
 
 
+![mobileapp](https://user-images.githubusercontent.com/84716641/157487766-6cf2029c-ff66-4808-bc9e-de6ea8aabb00.png)
 
-(foto mobileapp)
+![mobileapp2](https://user-images.githubusercontent.com/84716641/157487781-a1b6afdc-bad2-44f2-8d5f-b8a527a52158.png)
 
 
 
